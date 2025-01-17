@@ -10,7 +10,6 @@ public static class AuthMapper
         {
             Username = request.Username,
             Email = request.Email,
-            Password = request.Password,
             RegisteredAt = DateTime.UtcNow
         };
 }

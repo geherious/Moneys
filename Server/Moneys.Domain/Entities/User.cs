@@ -8,7 +8,9 @@ public record class User
 
     public required string Email { get; init; }
 
-    public required string Password { get; init; }
+    public byte[] Password { get; init; } = [];
+
+    public byte[] PasswordSalt { get; init; } = [];
 
     public required DateTime RegisteredAt { get; init; }
 }

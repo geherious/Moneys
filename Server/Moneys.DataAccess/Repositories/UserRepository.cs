@@ -13,8 +13,8 @@ public class UserRepository(IConnectionFactory connectionFactory) : IUserReposit
         const string sql =
         $"""
         WITH ins AS (
-            INSERT INTO users (username, email, password, registered_at)
-            VALUES (@Username, @Email, @Password, @RegisteredAt)
+            INSERT INTO users (username, email, password, password_salt, registered_at)
+            VALUES (@Username, @Email, @Password, @PasswordSalt, @RegisteredAt)
             ON CONFLICT (username) DO NOTHING
             RETURNING username
         )
