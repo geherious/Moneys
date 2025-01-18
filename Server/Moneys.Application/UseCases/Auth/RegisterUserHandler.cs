@@ -1,6 +1,6 @@
 using Moneys.Domain.Entities;
 using Moneys.Domain.Repositories;
-using Moneys.Domain.Services.Contracts;
+using Moneys.Domain.Services;
 
 namespace Moneys.Domain.UseCases.Auth.RegisterUser;
 

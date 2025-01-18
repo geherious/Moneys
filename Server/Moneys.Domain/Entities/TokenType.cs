@@ -1,4 +1,4 @@
-namespace Moneys.Authentication;
+namespace Moneys.Domain.Entities;
 
 public enum TokenType
 {

@@ -1,6 +1,7 @@
 using System.Security.Claims;
+using Moneys.Domain.Entities;
 
-namespace Moneys.Authentication.Services;
+namespace Moneys.Domain.Services;
 
 public interface IJwtIssuer
 {

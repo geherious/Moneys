@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moneys.DataAccess", "Moneys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moneys.Domain", "Moneys.Domain\Moneys.Domain.csproj", "{22191B72-6E2D-4A63-AE70-4449B587B0A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moneys.Application", "Moneys.Application\Moneys.Application.csproj", "{556025D9-34F4-4762-B13D-FACE1DA01A8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{22191B72-6E2D-4A63-AE70-4449B587B0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22191B72-6E2D-4A63-AE70-4449B587B0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22191B72-6E2D-4A63-AE70-4449B587B0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{556025D9-34F4-4762-B13D-FACE1DA01A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{556025D9-34F4-4762-B13D-FACE1DA01A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{556025D9-34F4-4762-B13D-FACE1DA01A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{556025D9-34F4-4762-B13D-FACE1DA01A8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

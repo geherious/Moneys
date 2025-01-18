@@ -1,6 +1,6 @@
 using Moneys.Domain.Entities;
 
-namespace Moneys.Domain.UseCases.Auth.RegisterUser;
+namespace Moneys.Domain.UseCases.Auth;
 
 public interface IRegisterUserHandler
 {

@@ -1,9 +1,12 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Moneys.Domain.Entities;
+using Moneys.Domain.Services;
 
-namespace Moneys.Authentication.Services;
+namespace Moneys.Application.Services;
 
 public class JwtIssuer(IConfiguration _configuration) : IJwtIssuer
 {

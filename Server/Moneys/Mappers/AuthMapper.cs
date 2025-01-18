@@ -8,7 +8,6 @@ public static class AuthMapper
     public static User ToDomain(this RegisterUserRequest request) =>
         new()
         {
-            Username = request.Username,
             Email = request.Email,
             RegisteredAt = DateTime.UtcNow
         };

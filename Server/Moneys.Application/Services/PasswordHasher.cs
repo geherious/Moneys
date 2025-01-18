@@ -1,8 +1,8 @@
 using System.Security.Cryptography;
 using System.Text;
-using Moneys.Domain.Services.Contracts;
+using Moneys.Domain.Services;
 
-namespace Moneys.Domain.Services.Implementations;
+namespace Moneys.Application.Services;
 
 public class PasswordHasher : IPasswordHasher
 {

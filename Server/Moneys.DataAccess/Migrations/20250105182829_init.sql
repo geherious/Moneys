@@ -2,7 +2,6 @@
 -- +goose StatementBegin
 CREATE TABLE users (
   id            BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  username      TEXT NOT NULL UNIQUE,
   email         TEXT NOT NULL UNIQUE,
   password      BYTEA NOT NULL,
   password_salt BYTEA NOT NULL,

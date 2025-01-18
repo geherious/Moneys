@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
+using Moneys.Application;
 using Moneys.Authentication;
 using Moneys.DataAccess;
-using Moneys.Domain;
 using Moneys.Filters;
 
 namespace Moneys;
@@ -32,7 +32,7 @@ public class Startup
 
         services.AddDb(_configuration["ConnectionStrings:PostgresConnection"]!);
 
-        services.AddDomain();
+        services.AddApplication();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

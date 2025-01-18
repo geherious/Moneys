@@ -1,4 +1,4 @@
-namespace Moneys.Domain.Services.Contracts;
+namespace Moneys.Domain.Services;
 
 public interface IPasswordHasher
 {
