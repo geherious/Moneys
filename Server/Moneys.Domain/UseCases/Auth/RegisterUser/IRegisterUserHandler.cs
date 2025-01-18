@@ -4,5 +4,5 @@ namespace Moneys.Domain.UseCases.Auth.RegisterUser;
 
 public interface IRegisterUserHandler
 {
-    Task Register(User user, string password);
+    Task Handle(User user, string password);
 }

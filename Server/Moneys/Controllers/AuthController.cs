@@ -19,7 +19,7 @@ namespace Moneys.Controllers
 
             var user = request.ToDomain();
 
-            await handler.Register(user, request.Password);
+            await handler.Handle(user, request.Password);
 
             return Ok();
         }

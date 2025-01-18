@@ -8,7 +8,7 @@ public class RegisterUserHandler(
     IUserRepository userRepository,
     IPasswordHasher passwordHasher) : IRegisterUserHandler
 {
-    public Task Register(User user, string password)
+    public Task Handle(User user, string password)
     {
         passwordHasher.HashPassword(password, out var hash, out var salt);
 
