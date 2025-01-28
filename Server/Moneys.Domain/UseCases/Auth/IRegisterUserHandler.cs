@@ -1,8 +1,13 @@
-using Moneys.Domain.Entities;
-
 namespace Moneys.Domain.UseCases.Auth;
+
+public record RegisterUserCommand
+{
+    public required string Email { get; init; }
+
+    public required string Password { get; init; }
+}
 
 public interface IRegisterUserHandler
 {
-    Task Handle(User user, string password);
+    Task Handle(RegisterUserCommand command);
 }

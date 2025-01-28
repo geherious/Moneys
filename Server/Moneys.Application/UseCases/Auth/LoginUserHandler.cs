@@ -1,6 +1,5 @@
 using System.Security.Claims;
 using Moneys.Domain.Entities;
-using Moneys.Domain.Exceptions;
 using Moneys.Domain.Repositories;
 using Moneys.Domain.Services;
 
@@ -12,42 +11,22 @@ public class LoginUserHandler(
     IPasswordHasher passwordHasher,
     IJwtIssuer jwtIssuer) : ILoginUserHandler
 {
-    public async Task<LoginInfo?> Handle(string email, string password)
+    public async Task<LoginInfo?> Handle(LoginUserCommand command)
     {
-        var user = await userRepository.GetByEmail(email);
+        var user = await userRepository.GetByEmail(command.Email);
 
         if (user is null)
             return null;
             
-        var result = passwordHasher.VerifyPassword(password, user.Password, user.PasswordSalt);
+        var result = passwordHasher.VerifyPassword(command.Password, user.Password, user.PasswordSalt);
 
         if (!result)
             return null;
 
-        var accessToken = GenerateJwtToken(user);
+        var info = jwtIssuer.GenerateLoginInfo(user.Id);
 
-        var refreshToken = new RefreshToken
-        {
-            UserId = user.Id,
-            Hash = Guid.NewGuid().ToString(),
-            ExpiresAt = jwtIssuer.GetDefaultValidityTime(TokenType.RefreshToken)
-        };
+        await refreshTokenRepository.Create(info.RefreshToken);
 
-        await refreshTokenRepository.Create(refreshToken);
-
-        return new LoginInfo
-        {
-            AccessToken = accessToken,
-            RefreshToken = refreshToken
-        };
-    }
-
-    private string GenerateJwtToken(User user)
-    {
-        return jwtIssuer.GenerateJwtToken(new[]
-            {
-                new Claim(Entities.ClaimTypes.UserId.ToString(), user.Id.ToString())
-            },
-            TokenType.AccessToken);
+        return info;
     }
 }

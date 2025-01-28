@@ -6,7 +6,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/Moneys/bin/Debug/net8.0/Moneys.dll",
+      "program": "${workspaceFolder}/Moneys/bin/Debug/net9.0/Moneys.dll",
       "args": [],
       "cwd": "${workspaceFolder}/Moneys",
       "stopAtEntry": false,

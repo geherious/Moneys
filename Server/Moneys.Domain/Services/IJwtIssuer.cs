@@ -8,4 +8,6 @@ public interface IJwtIssuer
     string GenerateJwtToken(IEnumerable<Claim> claims, TokenType tokenType);
 
     DateTime GetDefaultValidityTime(TokenType tokenType);
+
+    LoginInfo GenerateLoginInfo(long userId);
 }

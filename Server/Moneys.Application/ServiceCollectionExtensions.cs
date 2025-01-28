@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Moneys.Application.Services;
+using Moneys.Application.UseCases.Auth;
 using Moneys.Domain.Services;
 using Moneys.Domain.UseCases.Auth;
 using Moneys.Domain.UseCases.Auth.LoginUser;
@@ -30,6 +31,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped<IRegisterUserHandler, RegisterUserHandler>();
         services.AddScoped<ILoginUserHandler, LoginUserHandler>();
+        services.AddScoped<IRefreshUserTokenHandler, RefreshUserTokenHandler>();
 
         return services;
     }

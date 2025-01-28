@@ -8,14 +8,16 @@ public class RegisterUserHandler(
     IUserRepository userRepository,
     IPasswordHasher passwordHasher) : IRegisterUserHandler
 {
-    public Task Handle(User user, string password)
+    public Task Handle(RegisterUserCommand command)
     {
-        passwordHasher.HashPassword(password, out var hash, out var salt);
+        passwordHasher.HashPassword(command.Password, out var hash, out var salt);
 
-        user = user with
+        var user = new User
         {
+            Email = command.Email,
             Password = hash,
-            PasswordSalt = salt
+            PasswordSalt = salt,
+            RegisteredAt = DateTime.UtcNow
         };
 
         return userRepository.Create(user);

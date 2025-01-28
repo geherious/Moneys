@@ -1,14 +1,21 @@
-using Moneys.Domain.Entities;
+using Moneys.Domain.UseCases.Auth;
 using Moneys.Models;
 
 namespace Moneys.Mappers;
 
 public static class AuthMapper
 {
-    public static User ToDomain(this RegisterUserRequest request) =>
+    public static RegisterUserCommand ToCommand(this RegisterUserRequest request) =>
         new()
         {
             Email = request.Email,
-            RegisteredAt = DateTime.UtcNow
+            Password = request.Password
         };
+    
+    public static LoginUserCommand ToCommand(this LoginUserRequest request) =>
+    new()
+    {
+        Email = request.Email,
+        Password = request.Password
+    };
 }

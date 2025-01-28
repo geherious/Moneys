@@ -38,6 +38,28 @@ public class JwtIssuer(IConfiguration _configuration) : IJwtIssuer
             return jwt;
     }
 
+    public LoginInfo GenerateLoginInfo(long userId)
+    {
+        var accessToken = GenerateJwtToken(new[]
+            {
+                new Claim(Domain.Entities.ClaimTypes.UserId.ToString(), userId.ToString())
+            },
+            TokenType.AccessToken);
+
+        var refreshToken = new RefreshToken
+        {
+            UserId = userId,
+            Hash = Guid.NewGuid().ToString(),
+            ExpiresAt = GetDefaultValidityTime(TokenType.RefreshToken)
+        };
+
+        return new LoginInfo
+        {
+            AccessToken = accessToken,
+            RefreshToken = refreshToken
+        };
+    }
+
     public DateTime GetDefaultValidityTime(TokenType tokenType)
     {
         switch(tokenType)
